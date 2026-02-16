@@ -1,20 +1,9 @@
-require("theprimeagen.set")
-require("theprimeagen.remap")
-require("theprimeagen.lazy_init")
-
--- DO.not
--- DO NOT INCLUDE THIS
-
--- If i want to keep doing lsp debugging
--- function restart_htmx_lsp()
---     require("lsp-debug-tools").restart({ expected = {}, name = "htmx-lsp", cmd = { "htmx-lsp", "--level", "DEBUG" }, root_dir = vim.loop.cwd(), });
--- end
-
--- DO NOT INCLUDE THIS
--- DO.not
+require("config.set")
+require("config.remaps")
+require("config.lazy")
 
 local augroup = vim.api.nvim_create_augroup
-local ThePrimeagenGroup = augroup('ThePrimeagen', {})
+local mininvim_group = augroup('mininvim', {})
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
@@ -22,12 +11,6 @@ local yank_group = augroup('HighlightYank', {})
 function R(name)
     require("plenary.reload").reload_module(name)
 end
-
-vim.filetype.add({
-    extension = {
-        templ = 'templ',
-    }
-})
 
 autocmd('TextYankPost', {
     group = yank_group,
@@ -41,13 +24,13 @@ autocmd('TextYankPost', {
 })
 
 autocmd({"BufWritePre"}, {
-    group = ThePrimeagenGroup,
+    group = mininvim_group,
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
 
 autocmd('BufEnter', {
-    group = ThePrimeagenGroup,
+    group = mininvim_group,
     callback = function()
         if vim.bo.filetype == "zig" then
             pcall(vim.cmd.colorscheme, "tokyonight-night")
@@ -59,7 +42,7 @@ autocmd('BufEnter', {
 
 
 autocmd('LspAttach', {
-    group = ThePrimeagenGroup,
+    group = mininvim_group,
     callback = function(e)
         local opts = { buffer = e.buf }
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
