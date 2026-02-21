@@ -34,10 +34,9 @@ end
 return {
     {
         "mfussenegger/nvim-dap",
-        lazy = false,
+        tag = "0.10.0",
         config = function()
             local dap = require("dap")
-            dap.set_log_level("DEBUG")
 
             vim.keymap.set(
                 "n",
@@ -74,18 +73,16 @@ return {
             end, { desc = "Debug: Set Conditional Breakpoint" })
         end,
     },
-
     {
         "rcarriga/nvim-dap-ui",
+        tag = "v4.0.0",
         dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
         config = function()
             local dap = require("dap")
             local dapui = require("dapui")
             local function layout(name)
                 return {
-                    elements = {
-                        { id = name },
-                    },
+                    elements = { { id = name } },
                     enter = true,
                     size = 40,
                     position = "right",
@@ -177,48 +174,18 @@ return {
             end
         end,
     },
-
     {
         "jay-babu/mason-nvim-dap.nvim",
+        tag = "v2.5.2",
         dependencies = {
             "williamboman/mason.nvim",
             "mfussenegger/nvim-dap",
-            "neovim/nvim-lspconfig",
         },
         config = function()
             require("mason-nvim-dap").setup({
-                ensure_installed = {
-                    "delve",
-                },
-                automatic_installation = true,
-                handlers = {
-                    function(config)
-                        require("mason-nvim-dap").default_setup(config)
-                    end,
-                    delve = function(config)
-                        table.insert(config.configurations, 1, {
-                            args = function()
-                                return vim.split(vim.fn.input("args> "), " ")
-                            end,
-                            type = "delve",
-                            name = "file",
-                            request = "launch",
-                            program = "${file}",
-                            outputMode = "remote",
-                        })
-                        table.insert(config.configurations, 1, {
-                            args = function()
-                                return vim.split(vim.fn.input("args> "), " ")
-                            end,
-                            type = "delve",
-                            name = "file args",
-                            request = "launch",
-                            program = "${file}",
-                            outputMode = "remote",
-                        })
-                        require("mason-nvim-dap").default_setup(config)
-                    end,
-                },
+                ensure_installed = { "stylua", "jq" },
+                -- TODO Add as many languages as I can
+                handlers = {},
             })
         end,
     },
