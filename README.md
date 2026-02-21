@@ -17,3 +17,5 @@ These are some things I have read to get here:
 * review folder structure
 * test
 * distribute as Arch package
+* what can i lazy load? start from: https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#lazy-loading-with-lazynvim
+* use "event", "keys", "cmd", "opts", "init" from lazy.nvim (see the conform conf)

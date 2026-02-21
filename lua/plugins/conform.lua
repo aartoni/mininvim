@@ -1,30 +1,31 @@
 return {
     "stevearc/conform.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    tag = "v9.1.0",
     opts = {},
     config = function()
         require("conform").setup({
             format_on_save = {
-                timeout_ms = 5000,
+                timeout_ms = 500,
                 lsp_format = "fallback",
             },
             formatters_by_ft = {
                 c = { "clang-format" },
                 cpp = { "clang-format" },
-                lua = { "stylua" },
+                elixir = { "mix" },
                 go = { "gofmt" },
                 javascript = { "prettier" },
+                lua = { "stylua" },
+                rust = { "rustfmt" },
                 typescript = { "prettier" },
-                elixir = { "mix" },
             },
             formatters = {
-                ["clang-format"] = {
-                    prepend_args = { "-style=file", "-fallback-style=LLVM" },
-                },
+                ["clang-format"] = { prepend_args = { "-style=file" } },
             },
         })
 
         vim.keymap.set("n", "<leader>f", function()
-            require("conform").format({ bufnr = 0 })
+            require("conform").format()
         end)
     end,
 }
