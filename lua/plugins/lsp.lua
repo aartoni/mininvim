@@ -1,5 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
+    tag = "v2.6.0",
     dependencies = {
         "stevearc/conform.nvim",
         "mason-org/mason.nvim",
