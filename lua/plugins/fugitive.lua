@@ -1,21 +1,17 @@
 return {
     "tpope/vim-fugitive",
+    tag = "v3.7",
     config = function()
         vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
-        local Mininvim_Fugitive =
-            vim.api.nvim_create_augroup("Mininvim_Fugitive", {})
+        local FugitiveGroup = vim.api.nvim_create_augroup("Fugitive", {})
 
         local autocmd = vim.api.nvim_create_autocmd
-        autocmd("BufWinEnter", {
-            group = Mininvim_Fugitive,
-            pattern = "*",
-            callback = function()
-                if vim.bo.ft ~= "fugitive" then
-                    return
-                end
-
-                local bufnr = vim.api.nvim_get_current_buf()
+        autocmd("FileType", {
+            group = FugitiveGroup,
+            pattern = "fugitive",
+            callback = function(args)
+                local bufnr = args.buf
                 local opts = { buffer = bufnr, remap = false }
                 vim.keymap.set("n", "<leader>p", function()
                     vim.cmd.Git("push")
