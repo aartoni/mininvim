@@ -20,3 +20,4 @@ These are some things I have read to get here:
 * what can i lazy load? start from: https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#lazy-loading-with-lazynvim
 * use "event", "keys", "cmd", "opts", "init" from lazy.nvim (see the conform conf)
 * add at least 3 languages to the DAP configuration, and test them (Lua? C? Rust?)
+* simplify code thanks to plenary macros
