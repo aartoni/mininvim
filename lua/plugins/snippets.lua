@@ -1,16 +1,13 @@
 return {
     {
         "L3MON4D3/LuaSnip",
-        -- follow latest release.
-        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        -- install jsregexp (optional!).
+        tag = "v2.4.1",
+        -- install jsregexp (optional!)
+        -- TODO Move to PKGBUILD optdepend
         build = "make install_jsregexp",
-
         dependencies = { "rafamadriz/friendly-snippets" },
-
         config = function()
             local ls = require("luasnip")
-            ls.filetype_extend("javascript", { "jsdoc" })
 
             --- TODO: What is expand?
             vim.keymap.set({ "i" }, "<C-s>e", function()
