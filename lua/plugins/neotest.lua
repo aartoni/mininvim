@@ -1,21 +1,14 @@
 return {
     "nvim-neotest/neotest",
+    tag = "v5.13.4",
     dependencies = {
         "nvim-neotest/nvim-nio",
         "nvim-lua/plenary.nvim",
         "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter",
-        "fredrikaverpil/neotest-golang",
-        "leoluz/nvim-dap-go",
     },
     config = function()
-        require("neotest").setup({
-            adapters = {
-                require("neotest-golang")({
-                    dap = { justMyCode = false },
-                }),
-            },
-        })
+        require("neotest").setup({})
 
         vim.keymap.set("n", "<leader>tr", function()
             require("neotest").run.run({
