@@ -34,48 +34,20 @@ end
 return {
     {
         "mfussenegger/nvim-dap",
-        tag = "0.10.0",
-        config = function()
-            local dap = require("dap")
-
-            vim.keymap.set(
-                "n",
-                "<F8>",
-                dap.continue,
-                { desc = "Debug: Continue" }
-            )
-            vim.keymap.set(
-                "n",
-                "<F10>",
-                dap.step_over,
-                { desc = "Debug: Step Over" }
-            )
-            vim.keymap.set(
-                "n",
-                "<F11>",
-                dap.step_into,
-                { desc = "Debug: Step Into" }
-            )
-            vim.keymap.set(
-                "n",
-                "<F12>",
-                dap.step_out,
-                { desc = "Debug: Step Out" }
-            )
-            vim.keymap.set(
-                "n",
-                "<leader>b",
-                dap.toggle_breakpoint,
-                { desc = "Debug: Toggle Breakpoint" }
-            )
-            vim.keymap.set("n", "<leader>B", function()
-                dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-            end, { desc = "Debug: Set Conditional Breakpoint" })
-        end,
+        dependencies = { "rcarriga/nvim-dap-ui" },
+        -- stylua: ignore
+        keys = {
+            { "<F8>", function() require("dap").continue() end, { desc = "Debug: Continue" } },
+            { "<F10>", function() require("dap").step_over() end, { desc = "Debug: Step Over" } },
+            { "<F11>", function() require("dap").step_into() end, { desc = "Debug: Step Into" } },
+            { "<F12>", function() require("dap").step_out() end, { desc = "Debug: Step Out" } },
+            { "<leader>b", function() require("dap").toggle_breakpoint() end, { desc = "Debug: Toggle Breakpoint" } },
+            { "<leader>B", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition:")) end, { desc = "Debug: Set Conditional Breakpoint" } },
+        },
+        config = function() end,
     },
     {
         "rcarriga/nvim-dap-ui",
-        tag = "v4.0.0",
         dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
         config = function()
             local dap = require("dap")
@@ -155,10 +127,7 @@ return {
                 create_nav_options("DAP Watches")
             )
 
-            dapui.setup({
-                layouts = layouts,
-                enter = true,
-            })
+            dapui.setup({})
 
             dap.listeners.before.event_terminated.dapui_config = function()
                 dapui.close()

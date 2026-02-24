@@ -21,3 +21,5 @@ These are some things I have read to get here:
 * use "event", "keys", "cmd", "opts", "init" from lazy.nvim (see the conform conf)
 * add at least 3 languages to the DAP configuration, and test them (Lua? C? Rust?)
 * simplify code thanks to plenary macros
+* put branch name in the footer
+* italic lowercase "d"s are cut to the right, this can be seen in treesitter.lua
