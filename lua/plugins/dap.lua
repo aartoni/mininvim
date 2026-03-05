@@ -145,7 +145,6 @@ return {
     },
     {
         "jay-babu/mason-nvim-dap.nvim",
-        tag = "v2.5.2",
         dependencies = {
             "williamboman/mason.nvim",
             "mfussenegger/nvim-dap",
