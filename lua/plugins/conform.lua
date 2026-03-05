@@ -1,7 +1,6 @@
 return {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
-    tag = "v9.1.0",
     opts = {},
     config = function()
         require("conform").setup({
