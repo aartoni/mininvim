@@ -29,17 +29,6 @@ autocmd({ "BufWritePre" }, {
     command = [[%s/\s\+$//e]],
 })
 
-autocmd("BufEnter", {
-    group = mininvim_group,
-    callback = function()
-        if vim.bo.filetype == "zig" then
-            pcall(vim.cmd.colorscheme, "tokyonight-night")
-        else
-            pcall(vim.cmd.colorscheme, "rose-pine-moon")
-        end
-    end,
-})
-
 autocmd("LspAttach", {
     group = mininvim_group,
     callback = function(e)
