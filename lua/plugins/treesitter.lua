@@ -12,6 +12,7 @@ return {
                 "rust",
                 "jsdoc",
                 "bash",
+                "xml",
             }
 
             ts.install(parsers)
