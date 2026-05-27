@@ -61,7 +61,7 @@ autocmd("LspAttach", {
             vim.diagnostic.jump({ count = 1, float = true })
         end, opts)
         vim.keymap.set("n", "]d", function()
-            vim.diagnostic.juno({ count = -1, float = true })
+            vim.diagnostic.jump({ count = -1, float = true })
         end, opts)
     end,
 })
