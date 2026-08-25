@@ -24,3 +24,4 @@ These are some things I have read to get here:
 * put branch name in the footer
 * italic lowercase "d"s are cut to the right, this can be seen in treesitter.lua
 * decide whether to add support for Avante or to incorporate Pi
+* icons in DAP UI are cut (see by opening with `<leader>dr`)
