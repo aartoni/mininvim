@@ -8,7 +8,6 @@ return {
         -- one column for folds
         opt.foldcolumn = "1"
 
-        -- TODO: This is only available since Neovim v0.12 nightly branch hence, I should reinstall the official "neovim" pkg after v0.12 is out
         -- TODO: Use the foldopen and foldclose below once we fix the font
         -- vim.o.fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:"
         vim.o.fillchars =
