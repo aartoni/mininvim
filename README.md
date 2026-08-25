@@ -23,3 +23,4 @@ These are some things I have read to get here:
 * simplify code thanks to plenary macros
 * put branch name in the footer
 * italic lowercase "d"s are cut to the right, this can be seen in treesitter.lua
+* decide whether to add support for Avante or to incorporate Pi
