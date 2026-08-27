@@ -2,9 +2,9 @@ local function run(opts)
     return function() require("neotest").run.run(opts) end
 end
 
-local nearest = run({ suite = false, testify = true })
-local suite = run({ suite = true, testify = true })
-local debug_nearest = run({ suite = false, testify = true, strategy = "dap" })
+local nearest = run({ suite = false })
+local suite = run({ suite = true })
+local debug_nearest = run({ suite = false, strategy = "dap" })
 
 local function all() require("neotest").run.run(vim.fn.getcwd()) end
 local function summary() require("neotest").summary.toggle() end
