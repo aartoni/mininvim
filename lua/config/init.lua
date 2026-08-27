@@ -57,10 +57,10 @@ autocmd("LspAttach", {
         vim.keymap.set("i", "<C-h>", function()
             vim.lsp.buf.signature_help()
         end, opts)
-        vim.keymap.set("n", "[d", function()
+        vim.keymap.set("n", "]d", function()
             vim.diagnostic.jump({ count = 1, float = true })
         end, opts)
-        vim.keymap.set("n", "]d", function()
+        vim.keymap.set("n", "[d", function()
             vim.diagnostic.jump({ count = -1, float = true })
         end, opts)
     end,
