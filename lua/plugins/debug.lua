@@ -46,7 +46,10 @@ return {
                 "jay-babu/mason-nvim-dap.nvim",
                 dependencies = { "williamboman/mason.nvim" },
                 cmd = { "DapInstall", "DapUninstall" },
-                opts = {},
+                opts = {
+                    ensure_installed = { "codelldb" },
+                    handlers = {},
+                },
             },
         },
         -- stylua: ignore
