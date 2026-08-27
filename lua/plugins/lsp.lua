@@ -2,7 +2,6 @@ return {
     "neovim/nvim-lspconfig",
     tag = "v2.11.0",
     dependencies = {
-        "stevearc/conform.nvim",
         "mason-org/mason.nvim",
         "mason-org/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
@@ -10,7 +9,6 @@ return {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
         "hrsh7th/nvim-cmp",
-        "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
     },
