@@ -1,31 +1,26 @@
+local function jump(n)
+    return function() require("luasnip").jump(n) end
+end
+
+local function expand() require("luasnip").expand() end
+
+local function next_choice()
+    local ls = require("luasnip")
+    if ls.choice_active() then
+        ls.change_choice(1)
+    end
+end
+
 return {
-    {
-        "L3MON4D3/LuaSnip",
-        tag = "v2.5.0",
-        -- install jsregexp (optional!)
-        -- TODO Move to PKGBUILD optdepend
-        build = "make install_jsregexp",
-        dependencies = { "rafamadriz/friendly-snippets" },
-        config = function()
-            local ls = require("luasnip")
-
-            --- TODO: What is expand?
-            vim.keymap.set({ "i" }, "<C-s>e", function()
-                ls.expand()
-            end, { silent = true })
-
-            vim.keymap.set({ "i", "s" }, "<C-s>;", function()
-                ls.jump(1)
-            end, { silent = true })
-            vim.keymap.set({ "i", "s" }, "<C-s>,", function()
-                ls.jump(-1)
-            end, { silent = true })
-
-            vim.keymap.set({ "i", "s" }, "<C-E>", function()
-                if ls.choice_active() then
-                    ls.change_choice(1)
-                end
-            end, { silent = true })
-        end,
+    "L3MON4D3/LuaSnip",
+    tag = "v2.5.0",
+    -- TODO Move jsregexp to PKGBUILD optdepend
+    build = "make install_jsregexp",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    keys = {
+        { "<C-s>e", expand, mode = "i", silent = true },
+        { "<C-s>;", jump(1), mode = { "i", "s" }, silent = true },
+        { "<C-s>,", jump(-1), mode = { "i", "s" }, silent = true },
+        { "<C-E>", next_choice, mode = { "i", "s" }, silent = true },
     },
 }
