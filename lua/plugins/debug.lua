@@ -58,6 +58,9 @@ return {
             { "<leader>b", function() require("dap").toggle_breakpoint() end, desc = "Debug: Toggle Breakpoint" },
             { "<leader>B", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition:")) end, desc = "Debug: Set Conditional Breakpoint" },
         },
+        config = function()
+            require("dap").configurations = require("config.debug")
+        end,
     },
     {
         "rcarriga/nvim-dap-ui",
