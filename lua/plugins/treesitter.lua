@@ -5,13 +5,13 @@ return {
         config = function()
             local ts = require("nvim-treesitter")
             local parsers = {
-                "javascript",
-                "typescript",
+                "bash",
                 "c",
+                "javascript",
+                "jsdoc",
                 "lua",
                 "rust",
-                "jsdoc",
-                "bash",
+                "typescript",
                 "xml",
             }
 
