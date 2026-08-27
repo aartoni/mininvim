@@ -10,7 +10,10 @@ return {
                 "javascript",
                 "jsdoc",
                 "lua",
+                "markdown",
+                "markdown_inline",
                 "rust",
+                "toml",
                 "typescript",
                 "xml",
             }
