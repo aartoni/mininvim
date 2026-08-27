@@ -19,14 +19,7 @@ return {
         vim.lsp.config("*", { capabilities = capabilities })
 
         vim.lsp.config("lua_ls", {
-            settings = {
-                Lua = {
-                    diagnostics = { globals = { "vim" } },
-                    format = { enable = true },
-                    runtime = { version = "LuaJIT" },
-                    workspace = { checkThirdParty = false },
-                },
-            },
+            settings = { Lua = { runtime = { version = "LuaJIT" } } },
         })
 
         require("fidget").setup({})
