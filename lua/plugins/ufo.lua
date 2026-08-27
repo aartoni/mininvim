@@ -21,9 +21,7 @@ return {
     config = function()
         local ufo = require("ufo")
         ufo.setup({
-            provider_selector = function()
-                return { "treesitter", "indent" }
-            end,
+            provider_selector = function() return { "treesitter", "indent" } end,
         })
 
         -- Open/close all folds

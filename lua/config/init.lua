@@ -7,9 +7,7 @@ local mininvim_group = augroup("mininvim", {})
 
 local autocmd = vim.api.nvim_create_autocmd
 
-function R(name)
-    require("plenary.reload").reload_module(name)
-end
+function R(name) require("plenary.reload").reload_module(name) end
 
 autocmd("TextYankPost", {
     group = mininvim_group,

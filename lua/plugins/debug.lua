@@ -15,9 +15,7 @@ for i, panel in ipairs(panels) do
     index[name] = i
     panel_keys[i] = {
         "<leader>" .. key,
-        function()
-            require("dapui").toggle({ layout = index[name] })
-        end,
+        function() require("dapui").toggle({ layout = index[name] }) end,
         desc = "Debug: toggle " .. name .. " ui",
     }
 end
