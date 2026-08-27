@@ -23,4 +23,5 @@ return {
         { "<C-s>,", jump(-1), mode = { "i", "s" }, silent = true },
         { "<C-E>", next_choice, mode = { "i", "s" }, silent = true },
     },
+    config = function() require("luasnip.loaders.from_vscode").lazy_load() end,
 }
