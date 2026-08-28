@@ -19,6 +19,7 @@ return {
         initCommands = function()
             local etc = vim.fn.trim(vim.fn.system("rustc --print sysroot"))
                 .. "/lib/rustlib/etc"
+            -- TODO Add Python to optdepends in PKGBUILD
             return {
                 'command script import "' .. etc .. '/lldb_lookup.py"',
                 'command source -s 0 "' .. etc .. '/lldb_commands"',
