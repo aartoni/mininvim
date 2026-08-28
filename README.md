@@ -26,3 +26,5 @@ These are some things I have read to get here:
 * decide whether to add support for Avante or to incorporate Pi
 * icons in DAP UI are cut (see by opening with `<leader>dr`)
 * add support for LaTeX (parser, opening with Zathura and synctex)
+* neotest Rust support is incomplete. The main issue is that neotest-rust is archived while the only alternative I could find (rustaceanvim) is too bloated. I should try to find another minimal version or make an effort at making it work again
+    * what doesn't work: `<leader>to` on a test case opens the large entry instead of the specific test case; the large entry is not displayed correctly (a global `vim.env.NEXTEST_HIDE_PROGRESS_BAR = "1"` fixes it); I still have to test the remaining commands.

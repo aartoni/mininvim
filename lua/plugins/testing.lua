@@ -12,12 +12,12 @@ local function output() require("neotest").output.open() end
 
 return {
     "nvim-neotest/neotest",
-    tag = "v5.13.4",
     dependencies = {
         "nvim-neotest/nvim-nio",
         "nvim-lua/plenary.nvim",
         "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter",
+        "rouge8/neotest-rust",
     },
     keys = {
         { "<leader>tr", nearest, desc = "Test: nearest" },
@@ -27,5 +27,8 @@ return {
         { "<leader>tv", summary, desc = "Test: summary" },
         { "<leader>to", output, desc = "Test: output" },
     },
-    opts = {},
+    opts = function()
+        return { adapters = { require("neotest-rust") } }
+    end,
 }
+-- TODO Add cargo-nextest to optdepends
