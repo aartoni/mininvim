@@ -1,6 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        lazy = false,
         build = ":TSUpdate",
         config = function()
             local ts = require("nvim-treesitter")
@@ -19,6 +20,11 @@ return {
             }
 
             ts.install(parsers)
+
+            local filetypes = vim.iter(parsers)
+                :map(vim.treesitter.language.get_filetypes)
+                :flatten()
+                :totable()
 
             local function ts_should_disable(buf)
                 local max_filesize = 100 * 1024 -- 100 KB
@@ -41,31 +47,17 @@ return {
 
             vim.api.nvim_create_autocmd("FileType", {
                 group = group,
-                pattern = "*",
+                pattern = filetypes,
                 callback = function(args)
-                    local buf = args.buf
-                    local ft = args.match or vim.bo[buf].filetype
-                    if not ft or ft == "" then
+                    if ts_should_disable(args.buf) then
                         return
                     end
 
-                    -- Map filetype -> parser name (e.g., typescriptreact -> tsx)
-                    local ok_lang, lang =
-                        pcall(vim.treesitter.language.get_lang, ft)
-                    if not ok_lang or not lang then
-                        lang = ft
-                    end
-
-                    if ts_should_disable(buf) then
+                    if not pcall(vim.treesitter.start, args.buf) then
                         return
                     end
 
-                    local ok = pcall(vim.treesitter.start, buf, lang)
-                    if not ok then
-                        return
-                    end
-
-                    vim.bo[buf].indentexpr =
+                    vim.bo[args.buf].indentexpr =
                         "v:lua.require'nvim-treesitter'.indentexpr()"
                 end,
             })
