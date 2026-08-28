@@ -8,5 +8,5 @@ return {
                 cloak_pattern = "=.+",
             },
         },
-    }
+    },
 }

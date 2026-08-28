@@ -27,8 +27,6 @@ return {
         { "<leader>tv", summary, desc = "Test: summary" },
         { "<leader>to", output, desc = "Test: output" },
     },
-    opts = function()
-        return { adapters = { require("neotest-rust") } }
-    end,
+    opts = function() return { adapters = { require("neotest-rust") } } end,
 }
 -- TODO Add cargo-nextest to optdepends
