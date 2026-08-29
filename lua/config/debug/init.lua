@@ -1,11 +1,8 @@
-local dir = vim.fn.stdpath("config") .. "/lua/config/debug"
 local languages = {}
 
-for name, kind in vim.fs.dir(dir) do
-    local ft = name:match("^(.+)%.lua$")
-    if kind == "file" and ft and ft ~= "init" then
-        languages[ft] = require("config.debug." .. ft)
-    end
-end
+vim.iter(vim.api.nvim_get_runtime_file("lua/config/debug/*.lua", true))
+    :map(function(path) return vim.fn.fnamemodify(path, ":t:r") end)
+    :filter(function(ft) return ft ~= "init" end)
+    :each(function(ft) languages[ft] = require("config.debug." .. ft) end)
 
 return languages
