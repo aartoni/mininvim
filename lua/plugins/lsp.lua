@@ -18,8 +18,7 @@ return {
 
         require("fidget").setup({})
         require("mason").setup()
-        require("mason-lspconfig").setup({ ensure_installed = { "lua_ls" } })
-        vim.lsp.enable({ "clangd", "rust_analyzer" })
+        vim.lsp.enable({ "clangd", "lua_ls", "rust_analyzer" })
 
         vim.diagnostic.config({
             float = {
