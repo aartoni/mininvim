@@ -17,7 +17,10 @@ return {
             pattern = "fugitive",
             callback = function(args)
                 for _, map in ipairs(buf_maps) do
-                    vim.keymap.set("n", map[1], map[2], { buffer = args.buf })
+                    vim.keymap.set("n", map[1], map[2], {
+                        buffer = args.buf,
+                        nowait = true,
+                    })
                 end
             end,
         })
