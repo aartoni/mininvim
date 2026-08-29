@@ -13,7 +13,7 @@ end
 
 return {
     "L3MON4D3/LuaSnip",
-    tag = "v2.5.0",
+    version = "v2.*",
     -- TODO Move jsregexp to PKGBUILD optdepend
     build = "make install_jsregexp",
     dependencies = { "rafamadriz/friendly-snippets" },

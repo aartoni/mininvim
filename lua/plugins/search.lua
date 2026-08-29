@@ -16,7 +16,7 @@ end
 
 return {
     "nvim-telescope/telescope.nvim",
-    tag = "v0.2.1",
+    version = "*",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
         { "<leader>pf", builtin("find_files"), desc = "Find files" },
