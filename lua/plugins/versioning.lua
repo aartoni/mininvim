@@ -1,6 +1,6 @@
 local buf_maps = {
     { "<leader>p", function() vim.cmd.Git("push") end },
-    { "<leader>P", function() vim.cmd.Git({ "pull", "--rebase" }) end },
+    { "<leader>P", function() vim.cmd.Git("pull --rebase") end },
 }
 
 return {
