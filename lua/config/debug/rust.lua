@@ -1,7 +1,7 @@
 return {
     {
         name = "Launch",
-        type = "codelldb",
+        type = "lldb",
         request = "launch",
         program = function()
             vim.fn.system("cargo build")

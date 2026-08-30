@@ -38,21 +38,7 @@ end
 return {
     {
         "mfussenegger/nvim-dap",
-        dependencies = {
-            "rcarriga/nvim-dap-ui",
-            {
-                "jay-babu/mason-nvim-dap.nvim",
-                dependencies = {
-                    "mason-org/mason.nvim",
-                    opts = { PATH = "append" },
-                },
-                cmd = { "DapInstall", "DapUninstall" },
-                opts = {
-                    ensure_installed = { "codelldb" },
-                    handlers = {},
-                },
-            },
-        },
+        dependencies = { "rcarriga/nvim-dap-ui" },
         -- stylua: ignore
         keys = {
             { "<F8>", function() require("dap").continue() end, desc = "Debug: Continue" },
@@ -63,7 +49,15 @@ return {
             { "<leader>B", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition:")) end, desc = "Debug: Set Conditional Breakpoint" },
         },
         config = function()
-            require("dap").configurations = require("config.debug")
+            local dap = require("dap")
+
+            dap.adapters.lldb = {
+                type = "executable",
+                command = "lldb-dap",
+                name = "lldb",
+            }
+
+            dap.configurations = require("config.debug")
         end,
     },
     {
