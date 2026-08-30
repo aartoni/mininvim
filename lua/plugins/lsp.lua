@@ -12,11 +12,15 @@ return {
         vim.lsp.config("*", { capabilities = capabilities })
 
         vim.lsp.config("lua_ls", {
-            settings = { Lua = { runtime = { version = "LuaJIT" } } },
+            settings = {
+                Lua = {
+                    runtime = { version = "LuaJIT" },
+                    diagnostics = { globals = { "vim" } },
+                },
+            },
         })
 
         require("fidget").setup({})
-        require("mason").setup()
         -- TODO Add these to optdepends as it doesn't break, it only notifies
         -- the user that the package is not installed if they try to open a file
         -- requiring an unsupported language server.

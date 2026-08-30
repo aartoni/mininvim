@@ -42,7 +42,10 @@ return {
             "rcarriga/nvim-dap-ui",
             {
                 "jay-babu/mason-nvim-dap.nvim",
-                dependencies = { "mason-org/mason.nvim" },
+                dependencies = {
+                    "mason-org/mason.nvim",
+                    opts = { PATH = "append" },
+                },
                 cmd = { "DapInstall", "DapUninstall" },
                 opts = {
                     ensure_installed = { "codelldb" },
