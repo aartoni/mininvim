@@ -4,11 +4,11 @@
 
 These are some things I have read to get here:
 
-* voidrice
-* https://github.com/ntk148v/neovim-config
-* https://github.com/NvChad/tinyvim
-* https://vieitesss.github.io/posts/Neovim-new-config/
-* 0 to LSP by The Primeagen
+* [voidrice](https://github.com/LukeSmithxyz/voidrice)
+* [neovim-config](https://github.com/ntk148v/neovim-config)
+* [tinyvim](https://github.com/NvChad/tinyvim)
+* [Minimal Neovim config v0.12 edition](https://vieitesss.github.io/posts/Neovim-new-config/)
+* [0 to LSP: Neovim RC From Scratch](https://www.youtube.com/watch?v=w7i4amO_zaE)
 
 ## Design
 
