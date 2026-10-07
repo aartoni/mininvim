@@ -17,6 +17,12 @@ Tough decisions were made, here are the most notable ones:
 * no mason:
     * we already have `pacman` for that
     * the tradeoff is having to define some bits by hand
+* distributed as a package:
+    * easier dependency listing (via `optdepends`)
+    * the tradeoff is having to install it globally
+* color scheme from plugin:
+    * voidrice inherits `st`'s palette, not gruvbox's highlight groups
+    * the built-in `retrobox` is not exactly the same as gruvbox
 
 As you can see, the focus of this project is finding the right balance between
 readability and lines of code, relying on existing tools when available while
