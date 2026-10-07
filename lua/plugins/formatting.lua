@@ -15,6 +15,7 @@ return {
             elixir = { "mix" },
             go = { "gofmt" },
             javascript = { "prettier" },
+            json = { "prettier" },
             lua = { "stylua" },
             rust = { "rustfmt" },
             typescript = { "prettier" },
